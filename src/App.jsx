@@ -1,15 +1,14 @@
 import { useState } from 'react'
-import Button from '@mui/material/Button';
 import './App.css'
-
+import SocialApp from './components/SocialApp'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+        <SocialApp></SocialApp>
         
-        <Button variant="contained">Hello world</Button>
     </>
   )
 }
