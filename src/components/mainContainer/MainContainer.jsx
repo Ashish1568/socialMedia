@@ -3,25 +3,19 @@ import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-import PostCardList from '../postCardList/PostCardList';
+import PostCardList from '../PostCardList/PostCardList';
+import UserList from '../userList/userList';
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
 
 export default function MainContainer() {
   return (
-    <Box display={'flex'} justifyContent={'center'} align sx={{ width: '100%', mt:'3rem'}}>
-      <Grid container  justifyContent={'center'} alignItems={'start'} rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        <Grid item xs={0} md={3}>
-          <Item>1</Item>
+    <Box display='flex' justifyContent='space-around' alignItems={'center'}  sx={{ width: '100%', mt:'3rem'}}>
+      <Grid container  justifyContent={'center'} alignItems={'start'}  rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Grid item xs={0} md={3} container justifyContent="center">
+        <UserList></UserList>
         </Grid>
 
-        <Grid container justifyContent={'center'} alignItems={'center'} direction={'column'} item xs={12} md={9}>
+        <Grid container justifyContent={'center'} alignItems={'center'} direction={'column'} item xs={12} md={3}>
           <PostCardList></PostCardList>
          
         </Grid>
