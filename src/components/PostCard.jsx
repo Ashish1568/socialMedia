@@ -9,13 +9,20 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { useState } from 'react';
+import { memo } from 'react';
 
 
 
 
-export default function PostCard({authorFirstName,image,content,fullName}) {
+
+
+ function PostCard({authorFirstName,image,content,fullName}) {
+  const [isLiked,setIsLiked]=useState(false);
+
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, mb:'3rem'}}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -38,8 +45,8 @@ export default function PostCard({authorFirstName,image,content,fullName}) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+        <IconButton onClick={()=>{setIsLiked(!isLiked)}} aria-label="add to favorites">
+          {isLiked?<FavoriteIcon sx={{color:red[700]}}/>:<FavoriteBorderIcon/>}
         </IconButton>
         
       </CardActions>
@@ -47,3 +54,5 @@ export default function PostCard({authorFirstName,image,content,fullName}) {
     </Card>
   );
 }
+
+export default memo(PostCard);
